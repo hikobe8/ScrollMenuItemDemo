@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <com.soda.scrollmenuitemdemo.MyScrollMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="内容区域"
+            android:gravity="center"
+            android:background="#fff"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="菜单区域"
+            android:gravity="center"
+            android:background="#123456"/>
+
+    </com.soda.scrollmenuitemdemo.MyScrollMenuLayout>
+</LinearLayout>
