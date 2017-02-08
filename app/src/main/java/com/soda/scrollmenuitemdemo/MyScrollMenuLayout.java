@@ -130,6 +130,34 @@ public class MyScrollMenuLayout extends ViewGroup {
         return super.onInterceptTouchEvent(ev);
     }
 
+    private int mDownX1;
+    private int mDownY;
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mDownX1 = (int) ev.getRawX();
+                mDownY = (int) ev.getRawY();
+                getParent().requestDisallowInterceptTouchEvent(true);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                int x = (int) ev.getRawX();
+                int y = (int) ev.getRawY();
+                int deltaX = x - mDownX1;
+                int deltaY = y - mDownY;
+
+                if (Math.abs(deltaY) > Math.abs(deltaX)) {
+                    //父容器拦截上下滑动事件
+                    getParent().requestDisallowInterceptTouchEvent(false);
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
     @Override
     public void computeScroll() {
         super.computeScroll();
